@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#08111f" />
+  <title>LabSound — Laboratorio virtual de ondas y sonido</title>
+  <style>
+    :root{
+      --bg:#07101d; --panel:#0d192a; --panel2:#111f33; --text:#f3f7fb; --muted:#9fb0c7;
+      --accent:#41d6c3; --accent2:#7aa7ff; --warning:#f7c66b; --danger:#ff7d8b; --line:#20334c;
+      --shadow:0 22px 60px rgba(0,0,0,.28);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:
+      radial-gradient(circle at 12% 0%,rgba(65,214,195,.12),transparent 28%),
+      radial-gradient(circle at 90% 15%,rgba(122,167,255,.12),transparent 30%),var(--bg);color:var(--text)}
+    button,input{font:inherit}
+    .shell{max-width:1180px;margin:auto;padding:28px 22px 54px}
+    header{display:flex;gap:20px;justify-content:space-between;align-items:flex-start;margin-bottom:26px}
+    .brand{display:flex;gap:14px;align-items:center}.logo{width:48px;height:48px;border-radius:15px;background:linear-gradient(135deg,var(--accent),var(--accent2));display:grid;place-items:center;box-shadow:var(--shadow)}
+    .logo svg{width:30px;height:30px}.eyebrow{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:800}
+    h1{margin:3px 0 3px;font-size:clamp(1.55rem,3vw,2.35rem);line-height:1.08}.sub{color:var(--muted);max-width:690px;line-height:1.55;margin:0}
+    .status{display:flex;align-items:center;gap:8px;padding:10px 13px;border:1px solid var(--line);border-radius:999px;background:rgba(13,25,42,.75);color:var(--muted);white-space:nowrap}.dot{width:9px;height:9px;border-radius:50%;background:#64748b}.dot.live{background:var(--accent);box-shadow:0 0 0 6px rgba(65,214,195,.12)}
+    .grid{display:grid;grid-template-columns:1.35fr .65fr;gap:18px}.card{background:linear-gradient(180deg,rgba(17,31,51,.96),rgba(12,24,40,.96));border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow)}
+    .card-pad{padding:20px}.controls{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:14px}.btn{border:0;border-radius:14px;padding:11px 15px;cursor:pointer;font-weight:800;color:#06111d;background:var(--accent);transition:.2s transform,.2s opacity}.btn:hover{transform:translateY(-1px)}.btn.secondary{color:var(--text);background:#182942;border:1px solid #29405d}.btn.warning{background:var(--warning)}.btn:disabled{opacity:.45;cursor:not-allowed;transform:none}
+    .plot-head{display:flex;justify-content:space-between;gap:12px;align-items:end;margin:6px 0 8px}.plot-head h2{font-size:1rem;margin:0}.plot-head small{color:var(--muted)}
+    .plot{position:relative;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#07111f}.plot canvas{display:block;width:100%;height:220px}.plot-label{position:absolute;top:10px;left:12px;font-size:.74rem;color:var(--muted);background:rgba(7,17,31,.7);padding:5px 8px;border-radius:8px}
+    .metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}.metric{padding:16px;border-radius:18px;background:#0a1626;border:1px solid var(--line)}.metric .label{font-size:.8rem;color:var(--muted)}.metric .value{font-size:1.7rem;font-weight:900;margin-top:4px}.metric .unit{font-size:.85rem;color:var(--muted);font-weight:700}
+    .side-stack{display:grid;gap:18px;align-content:start}.side-title{font-size:1rem;margin:0 0 14px}.field{display:grid;gap:7px;margin-bottom:12px}.field label{font-size:.82rem;color:var(--muted);font-weight:700}.field input{width:100%;border-radius:12px;border:1px solid var(--line);background:#07111f;color:var(--text);padding:11px 12px;outline:none}.field input:focus{border-color:var(--accent)}
+    .chips{display:flex;gap:8px;flex-wrap:wrap}.chip{border:1px solid var(--line);background:#0a1626;color:var(--text);border-radius:999px;padding:7px 10px;cursor:pointer;font-size:.78rem;font-weight:800}
+    .mini{color:var(--muted);font-size:.82rem;line-height:1.5}.question{padding:16px;border-radius:18px;border:1px solid rgba(65,214,195,.25);background:rgba(65,214,195,.06);line-height:1.55}.question b{color:var(--accent)}
+    table{width:100%;border-collapse:collapse;font-size:.84rem}th,td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:right}th:first-child,td:first-child{text-align:left}th{color:var(--muted);font-weight:700}.empty{text-align:center!important;color:var(--muted);padding:22px!important}
+    .summary{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}.summary div{padding:10px;border:1px solid var(--line);border-radius:12px;background:#07111f}.summary span{display:block;color:var(--muted);font-size:.7rem}.summary strong{font-size:.95rem}
+    .help{margin:0 0 14px;padding:12px 14px;border:1px solid rgba(122,167,255,.35);background:rgba(122,167,255,.08);border-radius:12px;color:#d8e6ff;font-size:.86rem;line-height:1.5}.help a{color:#8fe8da}
+    .note{margin-top:14px;padding:12px 13px;border-radius:14px;background:rgba(247,198,107,.08);border:1px solid rgba(247,198,107,.23);color:#f6deb0;font-size:.8rem;line-height:1.45}
+    footer{margin-top:20px;color:var(--muted);font-size:.78rem;text-align:center}.hidden{display:none!important}
+    @media(max-width:900px){.grid{grid-template-columns:1fr}.metrics{grid-template-columns:1fr 1fr 1fr}header{flex-direction:column}.status{align-self:flex-start}}
+    @media(max-width:560px){.shell{padding:18px 13px 38px}.metrics{grid-template-columns:1fr}.summary{grid-template-columns:1fr}.plot canvas{height:185px}.card-pad{padding:15px}}
+  </style>
+</head>
+<body>
+<div class="shell">
+  <header>
+    <div class="brand">
+      <div class="logo" aria-hidden="true">
+        <svg viewBox="0 0 48 48" fill="none"><path d="M5 25c5 0 5-12 10-12s5 22 10 22 5-26 10-26 5 16 8 16" stroke="#06111d" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div><div class="eyebrow">MenoresLAB SpA.</div><h1>LabSound</h1><p class="sub">Laboratorio virtual para visualizar una onda sonora, observar su espectro y relacionar el tono percibido con la frecuencia medida.</p></div>
+    </div>
+    <div class="status"><span id="statusDot" class="dot"></span><span id="statusText">Micrófono inactivo</span></div>
+  </header>
+
+  <div class="grid">
+    <main class="card card-pad">
+      <div class="controls">
+        <button id="micBtn" class="btn">Activar micrófono</button>
+        <button id="demoBtn" class="btn secondary">Modo demo 440 Hz</button>
+        <button id="stopBtn" class="btn secondary" disabled>Detener</button>
+        <button id="captureBtn" class="btn warning" disabled>Registrar medición</button>
+      </div>
+
+      <div class="help" id="micHelp" role="status" aria-live="polite">Para medir desde el celular, abre LabSound desde una página HTTPS en Safari o Chrome y acepta el permiso del micrófono.</div>
+      <div class="plot-head"><h2>Onda en el tiempo</h2><small>Amplitud relativa vs. tiempo</small></div>
+      <div class="plot"><span class="plot-label">Forma de onda</span><canvas id="waveCanvas" width="1000" height="300"></canvas></div>
+
+      <div class="plot-head" style="margin-top:16px"><h2>Espectro de frecuencias</h2><small>0–2000 Hz</small></div>
+      <div class="plot"><span class="plot-label">FFT</span><canvas id="spectrumCanvas" width="1000" height="300"></canvas></div>
+
+      <div class="metrics">
+        <div class="metric"><div class="label">Frecuencia dominante</div><div class="value"><span id="freqValue">—</span> <span class="unit">Hz</span></div></div>
+        <div class="metric"><div class="label">Nivel relativo</div><div class="value"><span id="dbValue">—</span> <span class="unit">dBFS</span></div></div>
+        <div class="metric"><div class="label">Muestreo del audio</div><div class="value"><span id="sampleValue">—</span> <span class="unit">Hz</span></div></div>
+      </div>
+    </main>
+
+    <aside class="side-stack">
+      <section class="card card-pad">
+        <h2 class="side-title">Pregunta experimental</h2>
+        <div class="question">¿Cómo varía la <b>frecuencia dominante medida (Hz)</b> cuando aumenta el <b>tono percibido</b> de sonidos controlados?</div>
+        <p class="mini">Para el MVP conviene usar tonos simples o fuentes conocidas. Así la comparación entre “grave/agudo” y frecuencia es más clara y evita confundir la frecuencia dominante con armónicos de sonidos complejos.</p>
+      </section>
+
+      <section class="card card-pad">
+        <h2 class="side-title">Ensayo y referencia</h2>
+        <div class="field"><label for="referenceHz">Frecuencia de referencia (Hz)</label><input id="referenceHz" type="number" min="1" step="1" value="440" /></div>
+        <div class="chips">
+          <button class="chip" data-hz="220">220 Hz</button><button class="chip" data-hz="440">440 Hz</button><button class="chip" data-hz="880">880 Hz</button>
+        </div>
+        <p class="mini">Realiza al menos 5 registros por tono para comparar repetibilidad y error.</p>
+      </section>
+
+      <section class="card card-pad">
+        <h2 class="side-title">Mediciones registradas</h2>
+        <div style="overflow:auto"><table><thead><tr><th>#</th><th>f (Hz)</th><th>Error</th></tr></thead><tbody id="measureRows"><tr><td colspan="3" class="empty">Aún no hay mediciones</td></tr></tbody></table></div>
+        <div class="summary"><div><span>Promedio</span><strong id="avgOut">—</strong></div><div><span>Desv. est.</span><strong id="sdOut">—</strong></div><div><span>Error prom.</span><strong id="errOut">—</strong></div></div>
+        <div style="display:flex;gap:8px;margin-top:12px"><button id="clearBtn" class="btn secondary" style="padding:9px 12px">Limpiar tabla</button></div>
+        <div class="note">El nivel mostrado es <b>dBFS</b> (nivel digital relativo), no dB SPL calibrado. Para medir intensidad acústica física haría falta calibración con un sonómetro de referencia.</div>
+      </section>
+    </aside>
+  </div>
+  <footer>LabSound · Prototipo web MVP · JavaScript + Web Audio API + FFT</footer>
+</div>
+<script>
+(() => {
+  const waveCanvas = document.getElementById('waveCanvas');
+  const spectrumCanvas = document.getElementById('spectrumCanvas');
+  const wctx = waveCanvas.getContext('2d');
+  const sctx = spectrumCanvas.getContext('2d');
+  const micBtn = document.getElementById('micBtn');
+  const demoBtn = document.getElementById('demoBtn');
+  const stopBtn = document.getElementById('stopBtn');
+  const captureBtn = document.getElementById('captureBtn');
+  const clearBtn = document.getElementById('clearBtn');
+  const freqValue = document.getElementById('freqValue');
+  const dbValue = document.getElementById('dbValue');
+  const sampleValue = document.getElementById('sampleValue');
+  const statusText = document.getElementById('statusText');
+  const statusDot = document.getElementById('statusDot');
+  const rows = document.getElementById('measureRows');
+  const reference = document.getElementById('referenceHz');
+  const avgOut = document.getElementById('avgOut');
+  const sdOut = document.getElementById('sdOut');
+  const errOut = document.getElementById('errOut');
+
+  let audioCtx, analyser, source, stream, oscillator, muteGain, raf;
+  let timeData, freqData;
+  let currentFreq = NaN, currentDb = NaN;
+  let measurements = [];
+
+  function setStatus(text, live=false){statusText.textContent=text;statusDot.classList.toggle('live',live)}
+  function prepAudio(){
+    if(!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    if(audioCtx.state === 'suspended') audioCtx.resume();
+    analyser = audioCtx.createAnalyser(); analyser.fftSize = 8192; analyser.smoothingTimeConstant = .62;
+    timeData = new Float32Array(analyser.fftSize); freqData = new Float32Array(analyser.frequencyBinCount);
+    sampleValue.textContent = Math.round(audioCtx.sampleRate).toLocaleString('es-CL');
+  }
+  const micHelp = document.getElementById('micHelp');
+  function explainMicError(e){
+    if(!window.isSecureContext || location.protocol==='file:')
+      return 'Este enlace no es seguro para el micrófono. No abras el archivo HTML desde Archivos ni desde una vista previa. Publica LabSound en una web HTTPS y ábrela directamente en Safari o Chrome.';
+    if(!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia)
+      return 'Este navegador no permite usar el micrófono aquí. Abre el enlace HTTPS directamente en Safari (iPhone) o Chrome (Android), fuera de la vista previa de WhatsApp, Instagram o Drive.';
+    if(e.name==='NotAllowedError' || e.name==='PermissionDeniedError')
+      return 'Se bloqueó el permiso del micrófono. Revisa los permisos del sitio web en Safari o Chrome, permite el micrófono y vuelve a intentarlo.';
+    if(e.name==='NotFoundError' || e.name==='DevicesNotFoundError')
+      return 'No se encontró un micrófono disponible. Revisa que el dispositivo tenga uno y que funcione.';
+    if(e.name==='NotReadableError' || e.name==='TrackStartError')
+      return 'Otra aplicación puede estar usando el micrófono. Cierra apps de grabación o llamadas y vuelve a intentarlo.';
+    return 'No se pudo activar el micrófono ('+(e.name||'error')+'). '+(e.message||'Inténtalo de nuevo desde el navegador.');
+  }
+  async function startMic(){
+    micBtn.disabled=true;
+    try{
+      if(!window.isSecureContext || location.protocol==='file:') throw new DOMException('Se requiere HTTPS o localhost','SecurityError');
+      if(!navigator.mediaDevices?.getUserMedia) throw new DOMException('API de micrófono no disponible','NotSupportedError');
+      stopAudio(false);
+      stream = await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:false,noiseSuppression:false,autoGainControl:false}});
+      prepAudio();
+      await audioCtx.resume();
+      source = audioCtx.createMediaStreamSource(stream); source.connect(analyser);
+      micHelp.textContent='Micrófono conectado correctamente. Genera un sonido estable cerca del celular y observa las mediciones.';
+      setStatus('Micrófono activo',true); stopBtn.disabled=false; captureBtn.disabled=false; micBtn.disabled=true; demoBtn.disabled=true; loop();
+    }catch(e){
+      stopAudio(true);
+      const message=explainMicError(e);
+      setStatus('Micrófono no disponible');micHelp.textContent=message;
+    }
+  }
+  function startDemo(){
+    stopAudio(false); prepAudio();
+    oscillator = audioCtx.createOscillator(); oscillator.type='sine'; oscillator.frequency.value=440;
+    muteGain = audioCtx.createGain(); muteGain.gain.value=0;
+    oscillator.connect(analyser); analyser.connect(muteGain); muteGain.connect(audioCtx.destination); oscillator.start();
+    setStatus('Modo demo: tono de 440 Hz',true); stopBtn.disabled=false; captureBtn.disabled=false; micBtn.disabled=true; demoBtn.disabled=true; loop();
+  }
+  function stopAudio(reset=true){
+    if(raf) cancelAnimationFrame(raf); raf=null;
+    if(stream){stream.getTracks().forEach(t=>t.stop());stream=null}
+    if(oscillator){try{oscillator.stop()}catch{} oscillator.disconnect(); oscillator=null}
+    if(source){try{source.disconnect()}catch{} source=null}
+    if(analyser){try{analyser.disconnect()}catch{} analyser=null}
+    if(muteGain){try{muteGain.disconnect()}catch{} muteGain=null}
+    if(reset){setStatus('Micrófono inactivo');stopBtn.disabled=true;captureBtn.disabled=true;micBtn.disabled=false;demoBtn.disabled=false;freqValue.textContent='—';dbValue.textContent='—';drawIdle()}
+  }
+  function dominantFrequency(){
+    analyser.getFloatFrequencyData(freqData);
+    const nyquist=audioCtx.sampleRate/2, binHz=audioCtx.sampleRate/analyser.fftSize;
+    const minBin=Math.max(1,Math.floor(70/binHz)); const maxBin=Math.min(freqData.length-2,Math.ceil(2000/binHz));
+    let max=-Infinity, idx=minBin;
+    for(let i=minBin;i<=maxBin;i++){ if(freqData[i]>max){max=freqData[i];idx=i} }
+    if(max < -95) return NaN;
+    const a=freqData[idx-1], b=freqData[idx], c=freqData[idx+1];
+    const denom=(a-2*b+c); const delta=Math.abs(denom)>1e-9 ? .5*(a-c)/denom : 0;
+    return (idx+Math.max(-.5,Math.min(.5,delta)))*binHz;
+  }
+  function levelDbfs(){
+    analyser.getFloatTimeDomainData(timeData); let sum=0; for(const v of timeData) sum += v*v; const rms=Math.sqrt(sum/timeData.length); return rms>1e-7 ? 20*Math.log10(rms) : -140;
+  }
+  function grid(ctx,c,w,h){
+    ctx.clearRect(0,0,w,h); ctx.fillStyle='#07111f';ctx.fillRect(0,0,w,h);ctx.strokeStyle='#152840';ctx.lineWidth=1;
+    for(let i=1;i<10;i++){ctx.beginPath();ctx.moveTo((w/10)*i,0);ctx.lineTo((w/10)*i,h);ctx.stroke()}
+    for(let i=1;i<5;i++){ctx.beginPath();ctx.moveTo(0,(h/5)*i);ctx.lineTo(w,(h/5)*i);ctx.stroke()}
+  }
+  function drawWave(){
+    const w=waveCanvas.width,h=waveCanvas.height;grid(wctx,null,w,h); analyser.getFloatTimeDomainData(timeData);
+    wctx.strokeStyle='#41d6c3';wctx.lineWidth=3;wctx.beginPath();
+    for(let i=0;i<timeData.length;i+=8){const x=i/(timeData.length-1)*w;const y=h/2-timeData[i]*h*.42;if(i===0)wctx.moveTo(x,y);else wctx.lineTo(x,y)} wctx.stroke();
+  }
+  function drawSpectrum(){
+    const w=spectrumCanvas.width,h=spectrumCanvas.height;grid(sctx,null,w,h); analyser.getFloatFrequencyData(freqData);
+    const maxHz=2000, binHz=audioCtx.sampleRate/analyser.fftSize, maxBin=Math.min(freqData.length-1,Math.floor(maxHz/binHz));
+    const barW=w/maxBin; for(let i=1;i<maxBin;i++){const db=Math.max(-110,Math.min(-10,freqData[i]));const norm=(db+110)/100;const bh=norm*h*.88;sctx.fillStyle='rgba(122,167,255,.82)';sctx.fillRect(i*barW,h-bh,Math.max(1,barW*.8),bh)}
+    if(Number.isFinite(currentFreq)){const x=currentFreq/maxHz*w;sctx.strokeStyle='#f7c66b';sctx.lineWidth=3;sctx.beginPath();sctx.moveTo(x,0);sctx.lineTo(x,h);sctx.stroke()}
+  }
+  function loop(){
+    if(!analyser) return; currentFreq=dominantFrequency(); currentDb=levelDbfs();
+    freqValue.textContent=Number.isFinite(currentFreq)?currentFreq.toFixed(1):'—'; dbValue.textContent=Number.isFinite(currentDb)?currentDb.toFixed(1):'—'; drawWave();drawSpectrum();raf=requestAnimationFrame(loop);
+  }
+  function drawIdle(){
+    const w=waveCanvas.width,h=waveCanvas.height;grid(wctx,null,w,h);wctx.strokeStyle='rgba(65,214,195,.45)';wctx.lineWidth=2;wctx.beginPath();for(let x=0;x<w;x++){const y=h/2+Math.sin(x/28)*32*Math.exp(-x/w*.25);x===0?wctx.moveTo(x,y):wctx.lineTo(x,y)}wctx.stroke();
+    const sw=spectrumCanvas.width,sh=spectrumCanvas.height;grid(sctx,null,sw,sh);for(let i=0;i<30;i++){const x=i*(sw/30),amp=Math.exp(-Math.pow((i-7)/2.5,2));sctx.fillStyle='rgba(122,167,255,.30)';sctx.fillRect(x,sh-amp*sh*.78,sw/45,amp*sh*.78)}
+  }
+  function updateTable(){
+    if(!measurements.length){rows.innerHTML='<tr><td colspan="3" class="empty">Aún no hay mediciones</td></tr>';avgOut.textContent=sdOut.textContent=errOut.textContent='—';return}
+    const ref=Number(reference.value); rows.innerHTML=measurements.map((m,i)=>{const e=ref>0?Math.abs(m-ref)/ref*100:NaN;return `<tr><td>${i+1}</td><td>${m.toFixed(1)}</td><td>${Number.isFinite(e)?e.toFixed(1)+'%':'—'}</td></tr>`}).join('');
+    const avg=measurements.reduce((a,b)=>a+b,0)/measurements.length; const variance=measurements.reduce((s,v)=>s+(v-avg)**2,0)/measurements.length; const sd=Math.sqrt(variance); const err=ref>0?Math.abs(avg-ref)/ref*100:NaN;
+    avgOut.textContent=avg.toFixed(1)+' Hz';sdOut.textContent=sd.toFixed(1)+' Hz';errOut.textContent=Number.isFinite(err)?err.toFixed(1)+'%':'—';
+  }
+  micBtn.addEventListener('click',startMic);demoBtn.addEventListener('click',startDemo);stopBtn.addEventListener('click',()=>stopAudio(true));
+  captureBtn.addEventListener('click',()=>{if(Number.isFinite(currentFreq)){measurements.push(currentFreq);updateTable()}});clearBtn.addEventListener('click',()=>{measurements=[];updateTable()});reference.addEventListener('input',updateTable);
+  document.querySelectorAll('[data-hz]').forEach(b=>b.addEventListener('click',()=>{reference.value=b.dataset.hz;updateTable()}));
+  if(!window.isSecureContext || location.protocol==='file:'){micHelp.textContent='Para utilizar el micrófono en el celular necesitas una dirección HTTPS. El archivo HTML descargado solo sirve para ver el diseño y el modo demo.';}
+  window.addEventListener('beforeunload',()=>stopAudio(false)); drawIdle(); updateTable();
+})();
+</script>
+</body>
+</html>
