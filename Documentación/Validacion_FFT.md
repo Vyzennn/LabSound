@@ -150,8 +150,3 @@ Esta implementación permite desarrollar un procedimiento de validación utiliza
 La precisión y estabilidad del sistema todavía deben determinarse mediante las pruebas experimentales descritas.
 
 Una vez registrados los valores obtenidos, será posible evaluar cuantitativamente el desempeño del algoritmo y establecer conclusiones respaldadas por evidencia.
-
----
-
-*Responsable de la validación:* Ignacio Miranda.  
-*Estado:* Revisión de implementación completada; validación experimental pendiente.
