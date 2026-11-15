@@ -175,9 +175,3 @@ El análisis del código fuente confirma que LabSound implementa un sistema de a
 La integración de Web Audio API, FFT, Canvas y los cálculos estadísticos proporciona una base funcional para desarrollar experiencias educativas de análisis de frecuencias.
 
 Para completar su validación como MVP integrado, es necesario comprobar experimentalmente la estabilidad del sistema, la exactitud de las mediciones y la autonomía de uso por parte del estudiante.
-
----
-
-*Responsable de revisión y validación:* Ignacio Miranda – Software y Datos.
-
-*Estado del documento:* Arquitectura y funcionalidades verificadas mediante inspección del código fuente. Pruebas de ejecución y resultados experimentales pendientes de documentar.
