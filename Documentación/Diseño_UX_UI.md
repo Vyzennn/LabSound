@@ -201,7 +201,3 @@ La distribución visual y los estados de los botones proporcionan una base para 
 
 Para completar la validación UX/UI es necesario realizar pruebas prácticas con usuarios y comprobar que la experiencia pueda desarrollarse sin asistencia técnica.
 
----
-
-**Responsable de revisión UX/UI:** Lucas Espinoza.  
-**Estado:** Características de diseño verificadas mediante revisión del código. Pruebas de usabilidad pendientes.
