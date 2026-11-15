@@ -45,8 +45,6 @@ El evaluador observará el desarrollo de cada actividad y registrará:
 - Dificultades encontradas.
 - Comentarios del participante.
 
-Los resultados serán registrados después de realizar la prueba.
-
 ## 4. Procedimiento de evaluación
 
 ### Prueba 1. Acceso a la aplicación
@@ -61,8 +59,6 @@ Los resultados serán registrados después de realizar la prueba.
 
 **Resultado esperado:** El usuario comprende que LabSound permite estudiar la relación entre frecuencia y tono.
 
-**Resultado obtenido:** Pendiente.
-
 ### Prueba 2. Identificación de controles
 
 **Objetivo:** Evaluar la claridad de los botones principales.
@@ -74,8 +70,6 @@ Los resultados serán registrados después de realizar la prueba.
 4. Explicar para qué sirve cada control.
 
 **Resultado esperado:** El usuario identifica los controles y comprende sus funciones.
-
-**Resultado obtenido:** Pendiente.
 
 ### Prueba 3. Inicio del experimento
 
@@ -89,8 +83,6 @@ Los resultados serán registrados después de realizar la prueba.
 
 **Resultado esperado:** El usuario inicia correctamente el experimento y observa una frecuencia cercana a 440 Hz.
 
-**Resultado obtenido:** Pendiente.
-
 ### Prueba 4. Interpretación de gráficos
 
 **Objetivo:** Evaluar la comprensión de las visualizaciones científicas.
@@ -102,8 +94,6 @@ Los resultados serán registrados después de realizar la prueba.
 4. Explicar qué información representa cada elemento.
 
 **Resultado esperado:** El usuario reconoce la representación temporal y frecuencial del sonido.
-
-**Resultado obtenido:** Pendiente.
 
 ### Prueba 5. Registro de mediciones
 
@@ -118,8 +108,6 @@ Los resultados serán registrados después de realizar la prueba.
 
 **Resultado esperado:** El usuario registra cinco mediciones y localiza el promedio, la desviación estándar y el error porcentual.
 
-**Resultado obtenido:** Pendiente.
-
 ### Prueba 6. Cambio de referencia
 
 **Objetivo:** Evaluar la comprensión de los controles de referencia.
@@ -131,8 +119,6 @@ Los resultados serán registrados después de realizar la prueba.
 4. Explicar qué cambió en el cálculo.
 
 **Resultado esperado:** El usuario identifica que se modifica la frecuencia de referencia y comprende que el tono generado por el modo demostración continúa siendo de 440 Hz.
-
-**Resultado obtenido:** Pendiente.
 
 ### Prueba 7. Finalización del experimento
 
@@ -146,8 +132,6 @@ Los resultados serán registrados después de realizar la prueba.
 
 **Resultado esperado:** El usuario finaliza la adquisición sin ayuda y puede revisar o eliminar las mediciones.
 
-**Resultado obtenido:** Pendiente.
-
 ### Prueba 8. Adaptación a dispositivos móviles
 
 **Objetivo:** Evaluar la presentación de la interfaz en pantallas pequeñas.
@@ -160,8 +144,6 @@ Los resultados serán registrados después de realizar la prueba.
 5. Verificar que los botones sean accesibles.
 
 **Resultado esperado:** La interfaz se adapta al dispositivo sin superposición de elementos ni pérdida de funcionalidades.
-
-**Resultado obtenido:** Pendiente.
 
 ## 5. Registro de resultados
 
@@ -232,7 +214,3 @@ Sin embargo, la usabilidad real debe validarse mediante la observación de usuar
 
 La aplicación de este protocolo permitirá identificar dificultades concretas y fundamentar futuras decisiones de diseño UX/UI.
 
----
-
-**Responsable:** Lucas Espinoza – Diseño UX/UI.  
-**Estado:** Protocolo de pruebas preparado. Ejecución y resultados pendientes.
