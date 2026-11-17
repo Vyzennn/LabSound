@@ -1,0 +1,291 @@
+# LabSound – Guía de Laboratorio del Estudiante
+
+**MenoresLAB SpA.**  
+**Laboratorio virtual de ondas y sonido**
+
+**Asignatura:** Ciencias Naturales – Física  
+**Nivel:** Primero medio  
+**Área pedagógica responsable:** Vicente Zamorano  
+**Institución desarrolladora:** Universidad Mayor  
+**Año:** 2026
+
+---
+
+## 1. Identificación de la experiencia
+
+**Nombre del laboratorio:** LabSound – Relación entre frecuencia y tono.
+
+**Público objetivo:** Estudiantes de primero medio que se encuentren estudiando las características de las ondas sonoras.
+
+**Duración estimada:** 30 a 40 minutos.
+
+**Modalidad:** Experiencia práctica digital, individual o en parejas.
+
+**Recursos necesarios:**
+- Computador, tableta o teléfono con navegador compatible.
+- Conexión a internet para acceder a LabSound.
+- Micrófono, si se utilizarán sonidos reales.
+- Cuaderno o documento para registrar observaciones.
+
+**Enlace del laboratorio:**
+
+https://proyecto-innovacion-lab.netlify.app/
+
+## 2. Resultados de aprendizaje
+
+Al finalizar la experiencia, el estudiante será capaz de:
+
+1. Reconocer la frecuencia como una característica física de las ondas sonoras.
+2. Diferenciar sonidos graves y agudos mediante sus frecuencias.
+3. Interpretar una representación temporal de una onda sonora.
+4. Identificar frecuencias dominantes en un espectro.
+5. Registrar y comparar mediciones experimentales.
+6. Interpretar indicadores matemáticos como el promedio y el error porcentual.
+7. Formular conclusiones fundamentadas en los datos observados.
+
+**Vinculación curricular:** La experiencia se relaciona con los contenidos de ondas y sonido de primero medio. La referencia y redacción textual del objetivo de aprendizaje MINEDUC correspondiente deberán incorporarse tras comprobar la fuente curricular oficial.
+
+## 3. Fundamento científico
+
+El sonido es una onda mecánica que se propaga a través de un medio material, como el aire.
+
+Una de sus principales características es la frecuencia, que corresponde al número de oscilaciones realizadas por segundo.
+
+La frecuencia se mide en hercios (Hz).
+
+**Relación entre frecuencia y tono:**
+
+- Un sonido de menor frecuencia se percibe generalmente como más grave.
+- Un sonido de mayor frecuencia se percibe generalmente como más agudo.
+
+Para comparar tres tonos sinusoidales:
+
+| Frecuencia | Tono relativo |
+|---|---|
+| 220 Hz | Grave |
+| 440 Hz | Intermedio |
+| 880 Hz | Agudo |
+
+Estas denominaciones son relativas a los sonidos comparados.
+
+**Modelo matemático:**
+
+f = 1/T
+
+Donde:
+
+- f = frecuencia (Hz).
+- T = período (s).
+
+Por ejemplo, una señal de 440 Hz realiza 440 oscilaciones por segundo.
+
+**Análisis FFT:**
+
+LabSound utiliza procesamiento digital para representar las componentes frecuenciales de una señal sonora.
+
+El espectro permite identificar la frecuencia dominante, correspondiente a la componente con mayor magnitud dentro del intervalo analizado.
+
+En tonos sinusoidales simples, esta frecuencia coincide aproximadamente con la frecuencia del sonido generado.
+
+## 4. Pregunta de investigación
+
+**¿Cómo varía la frecuencia dominante medida cuando aumenta el tono percibido de sonidos controlados?**
+
+Durante la experiencia utilizarás LabSound para observar y registrar frecuencias sonoras, relacionándolas con los conceptos físicos estudiados.
+
+## 5. Hipótesis
+
+Antes de iniciar, responde:
+
+**¿Qué crees que ocurrirá con la frecuencia de un sonido cuando su tono sea más agudo?**
+
+Escribe tu hipótesis:
+
+Mi hipótesis es que:
+
+____________________________________
+
+____________________________________
+
+**Hipótesis científica de referencia:**
+
+Para tonos sinusoidales controlados, al aumentar la frecuencia de la onda sonora, el tono percibido será más agudo.
+
+## 6. Variables del experimento
+
+**Variable independiente:** Frecuencia conocida del tono utilizado en la comparación.
+
+**Variable dependiente:** Frecuencia dominante detectada por LabSound, expresada en Hz.
+
+**Variables de control:**
+- Dispositivo utilizado.
+- Fuente sonora.
+- Condiciones ambientales.
+- Distancia entre la fuente y el micrófono, cuando corresponda.
+- Nivel de ruido ambiental.
+
+En el modo demostración disponible actualmente, la señal generada es de 440 Hz. Para comparar otras frecuencias se necesitarán fuentes sonoras controladas adicionales.
+
+## 7. Procedimiento experimental
+
+### Parte A. Ingreso y configuración
+
+**Paso 1.** Ingresa a la aplicación LabSound mediante el enlace proporcionado.
+
+**Paso 2.** Identifica los principales elementos:
+
+- Activar micrófono.
+- Modo demo 440 Hz.
+- Detener.
+- Registrar medición.
+- Onda en el tiempo.
+- Espectro de frecuencias.
+- Frecuencia dominante.
+- Tabla de mediciones.
+
+**Paso 3.** En la sección «Frecuencia de referencia», selecciona 440 Hz.
+
+### Parte B. Desarrollo del experimento
+
+**Paso 4.** Presiona «Modo demo 440 Hz».
+
+La aplicación generará una señal sinusoidal digital de 440 Hz para su análisis. No es necesario que se reproduzca un sonido audible: la señal de demostración se analiza internamente.
+
+**Paso 5.** Observa el gráfico «Onda en el tiempo».
+
+Identifica la forma periódica de la señal.
+
+**Paso 6.** Observa el «Espectro de frecuencias».
+
+Busca la componente predominante dentro del gráfico.
+
+**Paso 7.** Identifica el valor mostrado en «Frecuencia dominante».
+
+Compáralo con la frecuencia de referencia de 440 Hz.
+
+### Parte C. Registro de datos
+
+**Paso 8.** Presiona «Registrar medición».
+
+Comprueba que se agregue el valor a la tabla.
+
+**Paso 9.** Repite el registro hasta completar cinco mediciones de la misma señal.
+
+**Paso 10.** Observa los siguientes indicadores:
+
+- Promedio.
+- Desviación estándar.
+- Error porcentual del promedio.
+
+Anota los resultados obtenidos.
+
+### Parte D. Análisis y finalización
+
+**Paso 11.** Presiona «Detener» para finalizar la demostración.
+
+**Paso 12.** Analiza los valores registrados y responde las preguntas de la sección de discusión.
+
+**Paso 13.** Para realizar otro ensayo, puedes usar «Limpiar tabla» y comenzar nuevamente.
+
+**Actividad complementaria:** Si dispones de un generador externo de tonos conocidos, puedes utilizar el micrófono para medir sonidos de 220 y 880 Hz, manteniendo condiciones similares entre ensayos.
+
+Recuerda: los botones de 220, 440 y 880 Hz de la versión actual cambian la referencia utilizada para calcular el error, pero no modifican el sonido generado por el modo demostración.
+
+## 8. Registro y análisis de datos
+
+### Tabla 1. Medición de la señal de 440 Hz
+
+| Medición | Frecuencia detectada (Hz) | Error (%) |
+|---|---|---|
+| 1 | ______ | ______ |
+| 2 | ______ | ______ |
+| 3 | ______ | ______ |
+| 4 | ______ | ______ |
+| 5 | ______ | ______ |
+
+**Promedio:** __________ Hz
+
+**Desviación estándar:** __________ Hz
+
+**Error porcentual del promedio:** __________ %
+
+### Cálculos utilizados
+
+**Promedio:**
+
+Promedio = suma de frecuencias / número de mediciones.
+
+**Error porcentual:**
+
+Error (%) = |frecuencia medida − frecuencia de referencia| / frecuencia de referencia × 100.
+
+**Desviación estándar:**
+
+Representa la dispersión de las mediciones alrededor de su promedio.
+
+LabSound calcula estos indicadores automáticamente.
+
+### Tabla 2. Comparación de tonos (actividad complementaria)
+
+Completa únicamente los ensayos que efectivamente hayas realizado.
+
+| Tono | Frecuencia conocida | Promedio medido |
+|---|---|---|
+| Grave | 220 Hz | ______ |
+| Intermedio | 440 Hz | ______ |
+| Agudo | 880 Hz | ______ |
+
+## 9. Análisis y discusión
+
+Responde utilizando los gráficos y mediciones observados.
+
+**Pregunta 1.** ¿Qué representa la frecuencia de una onda sonora?
+
+**Pregunta 2.** ¿Qué diferencias existen entre la onda en el tiempo y el espectro de frecuencias?
+
+**Pregunta 3.** ¿Qué frecuencia dominante detectó LabSound durante la demostración de 440 Hz?
+
+**Pregunta 4.** ¿Por qué la frecuencia detectada puede diferir ligeramente de la referencia?
+
+**Pregunta 5.** ¿Qué indica una desviación estándar pequeña en un conjunto de mediciones?
+
+**Pregunta 6.** ¿Cómo se relaciona la frecuencia con la percepción de un sonido grave o agudo?
+
+**Pregunta 7.** Si comparas tonos controlados de 220 y 880 Hz, ¿cuál debería percibirse como más agudo? Fundamenta científicamente.
+
+**Pregunta 8.** ¿Qué limitaciones tendría utilizar sonidos complejos en lugar de tonos sinusoidales?
+
+## 10. Conclusiones y reflexión final
+
+A partir del experimento realizado, redacta una conclusión que responda la pregunta de investigación.
+
+Tu conclusión debe incorporar:
+
+- La frecuencia dominante observada.
+- La comparación con el valor de referencia.
+- La interpretación de los indicadores estadísticos.
+- La relación científica entre frecuencia y tono.
+- Las posibles fuentes de error o limitaciones.
+
+**Mi conclusión:**
+
+## 10. Conclusión
+
+A través de la experiencia desarrollada en LabSound, se puede comprender la relación entre la frecuencia de una onda sonora y el tono percibido. En sonidos simples y controlados, las frecuencias más bajas corresponden a tonos más graves, mientras que las frecuencias más altas corresponden a tonos más agudos.
+
+La aplicación permite visualizar las ondas sonoras en el tiempo y analizar su espectro de frecuencias, facilitando la comprensión del fenómeno mediante representaciones gráficas y datos cuantitativos.
+
+Además, el registro de mediciones y el cálculo del promedio, la desviación estándar y el error porcentual permiten evaluar la consistencia de los resultados y compararlos con una frecuencia de referencia.
+
+En conclusión, LabSound constituye una herramienta educativa que complementa el aprendizaje teórico de las ondas sonoras mediante la experimentación digital, promoviendo la observación, el análisis de datos y la comprensión de conceptos físicos.
+
+### Reflexión sobre el aprendizaje
+
+Responde lsjflskfllslf
+ksjflskkf
+kskflsllfls
+jskfksk
+
+1. ¿Qué aprendiste sobre las ondas sonoras?
+2. ¿Cómo te ayudaron los gráficos a comprender la frecuencia?
+3. ¿Qué mejorarías de la experiencia de laboratorio?
