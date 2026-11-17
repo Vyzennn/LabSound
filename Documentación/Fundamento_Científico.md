@@ -185,10 +185,6 @@ La propuesta busca contribuir a las siguientes capacidades:
 - Comparar mediciones con valores de referencia.
 - Formular conclusiones fundamentadas en evidencia cuantitativa.
 
-**Alineación curricular pendiente de formalización:** Incorporar el código y la redacción oficial del objetivo de aprendizaje correspondiente del currículum MINEDUC, especialmente CN1M-OA-10, verificándolos contra el documento curricular oficial.
-
-No se incluye aquí una cita textual del objetivo de aprendizaje porque su redacción oficial no se ha contrastado directamente con la fuente curricular.
-
 ## 12. Procedimiento pedagógico propuesto
 
 1. Ingresar a LabSound.
